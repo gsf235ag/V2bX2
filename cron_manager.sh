@@ -41,9 +41,10 @@ get_cron_time() {
     echo "4) 每6小时执行"
     echo "5) 每8小时执行"
     echo "6) 每16小时执行"
-    echo "7) 每天执行"
-    echo "8) 自定义 Cron 表达式"
-    read -rp "输入序号 [1-8]: " choice
+    echo "7) 每天执行（凌晨0点）"
+    echo "8) 每天凌晨3点执行"
+    echo "9) 自定义 Cron 表达式"
+    read -rp "输入序号 [1-9]: " choice
 
     case $choice in
         1) cron_expr="* * * * *" ;;
@@ -53,7 +54,8 @@ get_cron_time() {
         5) cron_expr="0 */8 * * *" ;;
         6) cron_expr="0 */16 * * *" ;;
         7) cron_expr="0 0 * * *" ;;
-        8) read -rp "请输入完整 Cron 表达式: " cron_expr ;;
+        8) cron_expr="0 3 * * *" ;;
+        9) read -rp "请输入完整 Cron 表达式: " cron_expr ;;
         *) echo "无效选择"; return 1 ;;
     esac
 
