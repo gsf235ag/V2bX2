@@ -7,7 +7,7 @@ wget -N https://raw.githubusercontent.com/gsf235ag/V2bX/master/update_v2bx.sh &&
 ```
 
 
-## 软件安装
+## 定时任务
 
 ```
 wget -N https://raw.githubusercontent.com/gsf235ag/V2bX/master/cron_manager.sh && bash cron_manager.sh
