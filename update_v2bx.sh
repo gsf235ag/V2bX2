@@ -99,21 +99,21 @@ update_v2bx() {
     if [[ -n "$target_version" ]]; then
         # 用户指定了版本
         echo -e "准备更新到指定版本: ${green}${target_version}${plain}"
-        download_url="https://github.com/gsf235ag/V2bX/releases/download/${target_version}/V2bX-linux-${arch}.zip"
+        download_url="https://github.com/gsf235ag/V2bX2/releases/download/${target_version}/V2bX-linux-${arch}.zip"
         last_version="$target_version"
     else
         # 使用最新版本
         echo -e "${yellow}正在获取最新版本信息...${plain}"
-        last_version=$(curl -Ls "https://api.github.com/repos/gsf235ag/V2bX/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/gsf235ag/V2bX2/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
             echo -e "${red}获取V2bX最新版本失败，可能是超出Github API限制${plain}"
             echo -e "${yellow}尝试继续更新...${plain}"
             # 如果无法获取版本号，尝试直接下载latest
-            download_url="https://github.com/gsf235ag/V2bX/releases/latest/download/V2bX-linux-${arch}.zip"
+            download_url="https://github.com/gsf235ag/V2bX2/releases/latest/download/V2bX-linux-${arch}.zip"
             last_version="latest"
         else
             echo -e "检测到V2bX最新版本: ${green}${last_version}${plain}"
-            download_url="https://github.com/gsf235ag/V2bX/releases/download/${last_version}/V2bX-linux-${arch}.zip"
+            download_url="https://github.com/gsf235ag/V2bX2/releases/download/${last_version}/V2bX-linux-${arch}.zip"
         fi
     fi
     
